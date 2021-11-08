@@ -1,0 +1,124 @@
+<!DOCTYPE html >
+<html xmlns:th=http://www.thymeleaf.org>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<style>
+body {
+	padding-top: 60px;
+}
+</style>
+<title>Login Page</title>
+
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+<link th:href="@{assets/css/bootstrap.css}" type="text/css"
+	rel="stylesheet" />
+
+
+
+</head>
+<body>
+
+	<div class="container mt-5 pt-5 mb-5">
+		<div class="row justify-content-center">
+			<div class="col-md-6 col-lg-4 col-xl-4">
+				<div class="card">
+					<div class="card-body">
+						<div class="text-center m-auto">
+							<h4 class="text-uppercase text-center">Login</h4>
+						</div>
+						<div th:if="${param.exist}" class="alert alert-danger">
+							This account was disable, please try another.</div>
+						<div th:if="${param.error}" class="alert alert-danger">
+							Invalid username and password.</div>
+						
+						<div th:if="${param.logout}" class="alert alert-success">
+							You have been logged out.</div>
+
+						<form th:action="@{/login}" method="post"
+							style="max-width: 350px; margin: 0 auto;">
+							<!-- <input type="hidden" name="csrftoken"
+								value="ea49375f43c7e6a59c77df1e4de562b3f1350124eeb70e5d5124e4ce3b5251c2b4d12e9aaf2a3ddc618c178c8dc4620b" /> -->
+
+							<div class="form-group mb-3">
+
+								<label for="emailaddress">User ID </label> <input type="text"
+									name="userId" placeholder="Enter User ID" class="form-control"
+									required autofocus />
+							</div>
+							<div class="form-group mb-3">
+								<label for="password">Password</label>
+								<div class="input-group bg-light" id="show_hide_password">
+									<input type="password" class="form-control" id="password"
+										value="" name="password" placeholder="Enter Password" required />
+									<div class="input-group-addon">
+										<a href=""><i class="fa fa-lg fa-eye"
+											style="padding-top: 10px; padding-left: 10px; padding-right: 10px;"
+											aria-hidden="true"></i></a>
+									</div>
+
+
+								</div>
+							</div>
+							<div class="form-group mb-3">
+								<div class="custom-control custom-checkbox checkbox-success">
+									<input type="checkbox" class="custom-control-input"
+										id="checkbox-signin" checked /> <label
+										class="custom-control-label" for="checkbox-signin">Remember
+										me</label>
+								</div>
+								<a th:href="@{registration}">Sign Up</a>
+							</div>
+							<div class="form-group mb-0 text-center">
+								<button class="btn btn-primary btn-block" type="submit"
+									name="submit">Log In</button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document)
+				.ready(
+						function() {
+							$("#show_hide_password a")
+									.on(
+											"click",
+											function(event) {
+												event.preventDefault();
+												if ($(
+														"#show_hide_password input")
+														.attr("type") == "text") {
+													$(
+															"#show_hide_password input")
+															.attr("type",
+																	"password");
+													$("#show_hide_password i")
+															.addClass(
+																	"fa-eye-slash");
+													$("#show_hide_password i")
+															.removeClass(
+																	"fa-eye");
+												} else if ($(
+														"#show_hide_password input")
+														.attr("type") == "password") {
+													$(
+															"#show_hide_password input")
+															.attr("type",
+																	"text");
+													$("#show_hide_password i")
+															.removeClass(
+																	"fa-eye-slash");
+													$("#show_hide_password i")
+															.addClass("fa-eye");
+												}
+											});
+						});
+	</script>
+</body>
+</html>
