@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="backend.demo.test.test.repository.MapperRepository">
+
+	<select id="getOneUserById" parameterType="String" resultType="backend.demo.test.test.User">
+		SELECT
+			
+	
+	</select>
+</mapper>
