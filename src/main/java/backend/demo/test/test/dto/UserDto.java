@@ -14,7 +14,7 @@ public class UserDto {
 
 	private Integer id;
 	@NotEmpty	
-	@Size(min = 5, max = 15, message = "User Id length shoud be in between 5 to 15")
+	@Size(min = 10, max = 15, message = "User Id length shoud be in between 10 to 15")
 	private String userId;
 	
 	@NotEmpty
@@ -22,7 +22,7 @@ public class UserDto {
 	private String password;
 	
 	@NotEmpty
-	@Size(min = 2, max = 10, message = "length shoud be in between 2 to 10")
+	@Size(min = 10, max = 20, message = "length shoud be in between 10 to 20")
 	private String name;
 	
 	@NotEmpty(message = "Email field should not be empty")
