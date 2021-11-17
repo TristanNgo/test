@@ -18,7 +18,7 @@ public class UserDto {
 	private String userId;
 	
 	@NotEmpty
-	@Size(min = 4, max = 10, message = "password should be in between 4 to 10")
+	@Size(min = 8, max = 15, message = "password should be in between 4 to 10")
 	private String password;
 	
 	@NotEmpty
